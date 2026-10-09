@@ -9,9 +9,7 @@
     <title>Una sorpresa para ti ❤️</title>
 
     <style>
-        /* =========================
-           1. COLORES DE LA PAGINA
-        ========================= */
+        
 
         :root {
             --rosa-claro: #FFF0F3;
@@ -23,9 +21,7 @@
             --blanco: #FFFFFF;
         }
 
-        /* =========================
-           2. CONFIGURACION GENERAL
-        ========================= */
+        
 
         * {
             box-sizing: border-box;
@@ -56,9 +52,7 @@
             position: relative;
         }
 
-        /* =========================
-           3. TARJETAS Y PANTALLAS
-        ========================= */
+        
 
         .panel {
             background: rgba(255, 255, 255, 0.94);
@@ -108,10 +102,7 @@
             color: #895364;
         }
 
-        /* =========================
-           4. BOTONES
-        ========================= */
-
+        
         button {
             width: 100%;
             border: none;
@@ -151,10 +142,7 @@
             background: #F7C1CF;
         }
 
-        /* =========================
-           5. TEXTOS Y DETALLES
-        ========================= */
-
+        
         .nota {
             margin-top: 22px;
             font-size: 12px;
@@ -176,10 +164,7 @@
             letter-spacing: 5px;
         }
 
-        /* =========================
-           6. IMAGEN SORPRESA
-        ========================= */
-
+        
         .imagen-sorpresa {
             display: block;
             width: 100%;
@@ -189,10 +174,7 @@
             margin-top: 18px;
         }
 
-        /* =========================
-           7. ANIMACION
-        ========================= */
-
+        
         @keyframes aparecer {
             from {
                 opacity: 0;
@@ -212,9 +194,7 @@
 
 <main class="app">
 
-    <!-- =========================
-         PANTALLA 1: INICIO
-    ========================== -->
+    
 
     <section id="inicio" class="panel">
 
@@ -242,9 +222,7 @@
     </section>
 
 
-    <!-- =========================
-         PANTALLA 2: CUESTIONARIO
-    ========================== -->
+    
 
     <section id="cuestionario" class="panel oculto">
 
@@ -272,9 +250,7 @@
     </section>
 
 
-    <!-- =========================
-         PANTALLA 3: MENSAJE PERSONAL
-    ========================== -->
+    
 
     <section id="respuesta" class="panel oculto">
 
@@ -297,9 +273,7 @@
     </section>
 
 
-    <!-- =========================
-         PANTALLA 4: NINGUNA
-    ========================== -->
+    
 
     <section id="imagen" class="panel oculto">
 
@@ -317,11 +291,7 @@
             Bueno... jodete por que a mi si me gusta todo de ti
         </p>
 
-        <!--
-            Guarda tu imagen como mi-imagen.jpg
-            en la misma carpeta que index.html.
-        -->
-
+        
         
 
      
@@ -336,9 +306,7 @@
 
 <script>
 
-    // =====================================
-    // 1. IDENTIFICAR TODAS LAS PANTALLAS
-    // =====================================
+    
 
     const pantallas = [
         "inicio",
@@ -348,10 +316,7 @@
     ];
 
 
-    // =====================================
-    // 2. DEFINIR LAS CUATRO OPCIONES
-    // =====================================
-
+    
     const opcionesIniciales = [
 
         {
@@ -377,17 +342,11 @@
     ];
 
 
-    // Copiamos las opciones originales.
-    // Asi podemos quitar algunas sin perder
-    // la lista que se usa al comenzar.
-
+    
     let opcionesActuales = [...opcionesIniciales];
 
 
-    // =====================================
-    // 3. CAMBIAR ENTRE PANTALLAS
-    // =====================================
-
+    
     function mostrarPantalla(id) {
 
         // Ocultar todas las pantallas.
@@ -411,10 +370,7 @@
     }
 
 
-    // =====================================
-    // 4. COMENZAR EL CUESTIONARIO
-    // =====================================
-
+    
     function empezar() {
 
         // Restaurar todas las opciones.
@@ -429,10 +385,7 @@
     }
 
 
-    // =====================================
-    // 5. CREAR LOS BOTONES AUTOMATICAMENTE
-    // =====================================
-
+    
     function dibujarOpciones() {
 
         const contenedor =
@@ -463,10 +416,7 @@
     }
 
 
-    // =====================================
-    // 6. PROCESAR LA RESPUESTA ELEGIDA
-    // =====================================
-
+    
     function elegirOpcion(accion) {
 
 
@@ -537,9 +487,7 @@
     }
 
 
-    // =====================================
-    // 7. MOSTRAR UN MENSAJE PERSONALIZADO
-    // =====================================
+    
 
     function mostrarRespuestaPersonalizada(titulo, texto) {
 
@@ -554,44 +502,9 @@
     }
 
 
-    // =====================================
-    // 8. CARGAR LA IMAGEN SORPRESA
-    // =====================================
-
-    function cargarImagenSorpresa() {
-
-        const foto =
-            document.getElementById("fotoSorpresa");
-
-        const aviso =
-            document.getElementById("avisoImagen");
-
-        // Si la imagen carga correctamente...
-        foto.onload = function() {
-
-            foto.classList.remove("oculto");
-            aviso.classList.add("oculto");
-
-        };
-
-        // Si la imagen no existe o falla...
-        foto.onerror = function() {
-
-            foto.classList.add("oculto");
-            aviso.classList.remove("oculto");
-
-        };
-
-        // Intentar cargar la imagen.
-        foto.src = "mi-imagen.jpg";
-
-    }
-
-
-    // =====================================
-    // 9. VOLVER AL INICIO
-    // =====================================
-
+    
+    
+    
     function volverAlInicio() {
 
         mostrarPantalla("inicio");
