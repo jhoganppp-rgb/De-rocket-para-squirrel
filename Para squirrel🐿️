@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Una sorpresa para ti ❤️</title>
+
+    <style>
+        /* =========================
+           1. COLORES DE LA PAGINA
+        ========================= */
+
+        :root {
+            --rosa-claro: #FFF0F3;
+            --rosa-suave: #FADADD;
+            --rojo-intenso: #C9184A;
+            --rojo-oscuro: #800F2F;
+            --rosa-fuerte: #FF8FA3;
+            --texto: #590D22;
+            --blanco: #FFFFFF;
+        }
+
+        /* =========================
+           2. CONFIGURACION GENERAL
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 24px 15px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+            color: var(--texto);
+
+            background: radial-gradient(
+                circle at top,
+                var(--rosa-suave),
+                var(--rosa-claro) 65%
+            );
+        }
+
+        .app {
+            width: 100%;
+            max-width: 440px;
+            position: relative;
+        }
+
+        /* =========================
+           3. TARJETAS Y PANTALLAS
+        ========================= */
+
+        .panel {
+            background: rgba(255, 255, 255, 0.94);
+            border: 2px solid #F5B6C5;
+            border-radius: 25px;
+            padding: 28px 20px;
+            text-align: center;
+
+            box-shadow: 0 12px 35px #C9184A20;
+
+            animation: aparecer 0.45s ease;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        .decoracion {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            color: var(--rojo-oscuro);
+            background: var(--rosa-claro);
+            border: 1px solid #F5B6C5;
+            border-radius: 30px;
+            padding: 7px 13px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: clamp(26px, 7vw, 34px);
+            color: var(--rojo-oscuro);
+            margin: 8px 0 14px;
+        }
+
+        p {
+            line-height: 1.65;
+            font-size: 16px;
+        }
+
+        .subtitulo {
+            color: #895364;
+        }
+
+        /* =========================
+           4. BOTONES
+        ========================= */
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 15px;
+            padding: 15px 12px;
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+
+            transition:
+                transform 0.15s,
+                background 0.15s;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        .principal {
+            color: white;
+            background: var(--rojo-oscuro);
+            box-shadow: 0 5px 0 #52091E;
+        }
+
+        .principal:hover {
+            background: #A4133C;
+        }
+
+        .opcion {
+            color: var(--rojo-oscuro);
+            background: var(--rosa-suave);
+            border: 1px solid #F0A8BA;
+        }
+
+        .opcion:hover {
+            background: #F7C1CF;
+        }
+
+        /* =========================
+           5. TEXTOS Y DETALLES
+        ========================= */
+
+        .nota {
+            margin-top: 22px;
+            font-size: 12px;
+            color: #A16A7B;
+        }
+
+        .mensaje {
+            background: var(--rosa-claro);
+            border: 1px solid #F5D0D9;
+            border-radius: 18px;
+            padding: 18px;
+            margin-top: 18px;
+            line-height: 1.8;
+            white-space: pre-line;
+        }
+
+        .corazones {
+            color: var(--rojo-intenso);
+            letter-spacing: 5px;
+        }
+
+        /* =========================
+           6. IMAGEN SORPRESA
+        ========================= */
+
+        .imagen-sorpresa {
+            display: block;
+            width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+            border-radius: 16px;
+            margin-top: 18px;
+        }
+
+        /* =========================
+           7. ANIMACION
+        ========================= */
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<main class="app">
+
+    <!-- =========================
+         PANTALLA 1: INICIO
+    ========================== -->
+
+    <section id="inicio" class="panel">
+
+        <div class="decoracion">🐿️💗💗🦝</div>
+
+        <div class="etiqueta">
+            UNA SORPRESA PARA TI
+        </div>
+
+        <h1>¿Listo para empezar?</h1>
+
+        <p class="subtitulo">
+            He preparado una pequeña sorpresa
+            especialmente para ti.
+        </p>
+
+        <button class="principal" onclick="empezar()">
+            ¡Sí, estoy listo! ❤️
+        </button>
+
+        <div class="nota">
+            hoy aprendi a programar perdon si ves un error✨
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA 2: CUESTIONARIO
+    ========================== -->
+
+    <section id="cuestionario" class="panel oculto">
+
+        <div class="decoracion">💗 💕 💗</div>
+
+        <div class="etiqueta">
+            PREGUNTA 01
+        </div>
+
+        <h1>
+            ¿Qué es lo que más te gusta de mí?
+        </h1>
+
+        <p class="subtitulo">
+            Elige la respuesta que más te represente.
+        </p>
+
+        <!-- Aqui apareceran las opciones -->
+        <div id="opciones"></div>
+
+        <div class="nota">
+            Una pregunta con mucho amor ❤️
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA 3: MENSAJE PERSONAL
+    ========================== -->
+
+    <section id="respuesta" class="panel oculto">
+
+        <div class="decoracion">🐿️💗💗🦝</div>
+
+        <div class="etiqueta">
+            UN MENSAJE PARA TI
+        </div>
+
+        <h1 id="tituloRespuesta">
+            Algo que quiero decirte
+        </h1>
+
+        <div id="textoRespuesta" class="mensaje"></div>
+
+        <button class="principal" onclick="volverAlInicio()">
+            Volver al inicio ❤️
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA 4: NINGUNA
+    ========================== -->
+
+    <section id="imagen" class="panel oculto">
+
+        <div class="decoracion">💔 🖕🖕😔</div>
+
+        <div class="etiqueta">
+            RESPUESTA DETECTADA
+        </div>
+
+        <h1>
+            ¿Ninguna de las anteriores? 😭
+        </h1>
+
+        <p>
+            Bueno... jodete por que a mi si me gusta todo de ti
+        </p>
+
+        <!--
+            Guarda tu imagen como mi-imagen.jpg
+            en la misma carpeta que index.html.
+        -->
+
+        
+
+     
+        <button class="principal" onclick="volverAlInicio()">
+            Volver al inicio ❤️
+        </button>
+
+    </section>
+
+</main>
+
+
+<script>
+
+    // =====================================
+    // 1. IDENTIFICAR TODAS LAS PANTALLAS
+    // =====================================
+
+    const pantallas = [
+        "inicio",
+        "cuestionario",
+        "respuesta",
+        "imagen"
+    ];
+
+
+    // =====================================
+    // 2. DEFINIR LAS CUATRO OPCIONES
+    // =====================================
+
+    const opcionesIniciales = [
+
+        {
+            texto: "Tu personalidad 💗",
+            accion: "personalidad"
+        },
+
+        {
+            texto: "Que eres un programador muy pro 💻",
+            accion: "programador"
+        },
+
+        {
+            texto: "Todas las anteriores ❤️",
+            accion: "todas"
+        },
+
+        {
+            texto: "Ninguna de las anteriores 🤨",
+            accion: "ninguna"
+        }
+
+    ];
+
+
+    // Copiamos las opciones originales.
+    // Asi podemos quitar algunas sin perder
+    // la lista que se usa al comenzar.
+
+    let opcionesActuales = [...opcionesIniciales];
+
+
+    // =====================================
+    // 3. CAMBIAR ENTRE PANTALLAS
+    // =====================================
+
+    function mostrarPantalla(id) {
+
+        // Ocultar todas las pantallas.
+        pantallas.forEach(function(nombre) {
+
+            document.getElementById(nombre)
+                .classList.add("oculto");
+
+        });
+
+        // Mostrar solamente la elegida.
+        document.getElementById(id)
+            .classList.remove("oculto");
+
+        // Llevar la vista al principio.
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    // =====================================
+    // 4. COMENZAR EL CUESTIONARIO
+    // =====================================
+
+    function empezar() {
+
+        // Restaurar todas las opciones.
+        opcionesActuales = [...opcionesIniciales];
+
+        // Dibujar los botones.
+        dibujarOpciones();
+
+        // Abrir el cuestionario.
+        mostrarPantalla("cuestionario");
+
+    }
+
+
+    // =====================================
+    // 5. CREAR LOS BOTONES AUTOMATICAMENTE
+    // =====================================
+
+    function dibujarOpciones() {
+
+        const contenedor =
+            document.getElementById("opciones");
+
+        // Limpiar los botones anteriores.
+        contenedor.replaceChildren();
+
+        // Crear un boton por cada opcion.
+        opcionesActuales.forEach(function(opcion) {
+
+            const boton = document.createElement("button");
+
+            boton.className = "opcion";
+            boton.textContent = opcion.texto;
+
+            // Ejecutar la accion al pulsar.
+            boton.addEventListener("click", function() {
+
+                elegirOpcion(opcion.accion);
+
+            });
+
+            contenedor.appendChild(boton);
+
+        });
+
+    }
+
+
+    // =====================================
+    // 6. PROCESAR LA RESPUESTA ELEGIDA
+    // =====================================
+
+    function elegirOpcion(accion) {
+
+
+        // OPCION 1: PERSONALIDAD
+
+        if (accion === "personalidad") {
+
+            mostrarRespuestaPersonalizada(
+
+                "Tu personalidad 💗",
+
+                "muchas gracias, te amo y oye, perdon si no llego a ser lo suficientemente bueno para ti, creeme que intento cada dia mejorar. perdoname si soy intenso, perdoname si me alejo, perdona cada uno de mis pecados porfavor, te amo, no sabria que hacer sin ti, cada dia quiero hacerme a la idea pero es que solo no puedo pensar una vida sin ti"
+            );
+
+        }
+
+
+        // OPCION 2: PROGRAMADOR MUY PRO
+
+        else if (accion === "programador") {
+
+            alert("¡Muchas gracias! ❤️");
+
+            // Eliminar la opcion de programador
+            // y tambien la de todas las anteriores.
+
+            opcionesActuales = opcionesActuales.filter(
+                function(opcion) {
+
+                    return opcion.accion !== "programador"
+                        && opcion.accion !== "todas";
+
+                }
+            );
+
+            // Actualizar los botones.
+            dibujarOpciones();
+
+            // Volver al cuestionario.
+            mostrarPantalla("cuestionario");
+
+        }
+
+
+        // OPCION 3: TODAS LAS ANTERIORES
+
+        else if (accion === "todas") {
+
+            mostrarRespuestaPersonalizada(
+
+                "¡Lo sabía! ❤️",
+
+                "muchas gracias, te amo y oye, perdon si no llego a ser lo suficientemente bueno para ti, creeme que intento cada dia mejorar. perdoname si soy intenso, perdoname si me alejo, perdona cada uno de mis pecados porfavor, te amo, no sabria que hacer sin ti, cada dia quiero hacerme a la idea pero es que solo no puedo pensar una vida sin ti"
+            );
+        }
+
+
+        // OPCION 4: NINGUNA DE LAS ANTERIORES
+
+        else if (accion === "ninguna") {
+
+            mostrarPantalla("imagen");
+
+            cargarImagenSorpresa();
+
+        }
+
+    }
+
+
+    // =====================================
+    // 7. MOSTRAR UN MENSAJE PERSONALIZADO
+    // =====================================
+
+    function mostrarRespuestaPersonalizada(titulo, texto) {
+
+        document.getElementById("tituloRespuesta")
+            .textContent = titulo;
+
+        document.getElementById("textoRespuesta")
+            .textContent = texto;
+
+        mostrarPantalla("respuesta");
+
+    }
+
+
+    // =====================================
+    // 8. CARGAR LA IMAGEN SORPRESA
+    // =====================================
+
+    function cargarImagenSorpresa() {
+
+        const foto =
+            document.getElementById("fotoSorpresa");
+
+        const aviso =
+            document.getElementById("avisoImagen");
+
+        // Si la imagen carga correctamente...
+        foto.onload = function() {
+
+            foto.classList.remove("oculto");
+            aviso.classList.add("oculto");
+
+        };
+
+        // Si la imagen no existe o falla...
+        foto.onerror = function() {
+
+            foto.classList.add("oculto");
+            aviso.classList.remove("oculto");
+
+        };
+
+        // Intentar cargar la imagen.
+        foto.src = "mi-imagen.jpg";
+
+    }
+
+
+    // =====================================
+    // 9. VOLVER AL INICIO
+    // =====================================
+
+    function volverAlInicio() {
+
+        mostrarPantalla("inicio");
+
+    }
+
+</script>
+
+</body>
+</html>
